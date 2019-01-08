@@ -1,3 +1,5 @@
+package entity;
+
 public class Product {
     private Long id;
     private String productName;
