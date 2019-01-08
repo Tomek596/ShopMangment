@@ -7,4 +7,12 @@ public class Boots extends Product {
         this.size = size;
         this.isNaturalSkin = isNaturalSkin;
     }
+
+    public int getSize() {
+        return size;
+    }
+
+    public boolean isNaturalSkin() {
+        return isNaturalSkin;
+    }
 }

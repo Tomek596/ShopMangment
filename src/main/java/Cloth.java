@@ -7,4 +7,12 @@ public class Cloth extends Product {
         this.size = size;
         this.material = material;
     }
+
+    public String getSize() {
+        return size;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
 }
