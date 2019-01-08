@@ -1,12 +1,12 @@
 public class Product {
-    private int id;
+    private Long id;
     private String productName;
     private float price;
     private float weight;
     private String color;
     private int productCount;
 
-    public Product(int id, String productName, float price, float weight, String color, int productCount) {
+    public Product(Long id, String productName, float price, float weight, String color, int productCount) {
         this.id = id;
         this.productName = productName;
         this.price = price;
@@ -15,7 +15,7 @@ public class Product {
         this.productCount = productCount;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -45,5 +45,17 @@ public class Product {
 
     public void setProductCount(int productCount) {
         this.productCount = productCount;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", productName='" + productName + '\'' +
+                ", price=" + price +
+                ", weight=" + weight +
+                ", color='" + color + '\'' +
+                ", productCount=" + productCount +
+                '}';
     }
 }
