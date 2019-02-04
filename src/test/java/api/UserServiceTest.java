@@ -13,8 +13,8 @@ public class UserServiceTest {
     public void testGetAllUsers() {
         //is
         List<User> users = new ArrayList<User>();
-        users.add(new User(1l, "admin", "admin"));
-        users.add(new User(2l, "pablo", "admin"));
+        users.add(new User(1L, "admin", "admin"));
+        users.add(new User(2L, "pablo", "admin"));
         //then
         UserServiceImpl userService = new UserServiceImpl(users);
         List<User> usersFromTestClass = userService.getAllUsers();
@@ -26,7 +26,7 @@ public class UserServiceTest {
     public void testAddUser() {
         //is
         List<User> users = new ArrayList<User>();
-        User user = new User(1l, "admin", "admin");
+        User user = new User(1L, "admin", "admin");
         users.add(user);
         //then
         UserServiceImpl userService = new UserServiceImpl();
@@ -40,13 +40,13 @@ public class UserServiceTest {
     public void testRemoveUser() {
         //is
         List<User> users = new ArrayList<User>();
-        User admin = new User(1l, "admin", "admin");
-        User pablo = new User(2l, "pablo", "admin");
+        User admin = new User(1L, "admin", "admin");
+        User pablo = new User(2L, "pablo", "admin");
         users.add(admin);
         users.add(pablo);
         //then
         UserServiceImpl userService = new UserServiceImpl(users);
-        userService.removeUserById(1l);
+        userService.removeUserById(1L);
         users.remove(admin);
         List<User> usersFromTestClass = userService.getAllUsers();
         //expected
