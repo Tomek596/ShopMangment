@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="670efb0d-68cf-4c97-a25c-1a257967103d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/api/ProductService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/ProductServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/api/ProductServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/api/ProductServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/api/ProductServiceTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/api/ProductServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="1562">
+              <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#254#263#0" expanded="true" />
@@ -89,8 +86,8 @@
         <option value="$PROJECT_DIR$/src/test/java/api/UserServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/api/ProductService.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/test/java/api/ProductServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/service/ProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/api/ProductServiceTest.java" />
       </list>
     </option>
   </component>
@@ -208,7 +205,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549300532326" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549300626645" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -304,7 +301,7 @@
       <workItem from="1549184868752" duration="907000" />
       <workItem from="1549287325248" duration="688000" />
       <workItem from="1549288620887" duration="842000" />
-      <workItem from="1549290897328" duration="7201000" />
+      <workItem from="1549290897328" duration="7478000" />
     </task>
     <task id="LOCAL-00001" summary="init commit and created models">
       <created>1546941438089</created>
@@ -348,7 +345,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549296643207</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Impl ProductService">
+      <created>1549300642369</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1549300642369</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -357,12 +361,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15551000" />
+    <option name="totallyTimeSpent" value="15828000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1082" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23385519" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.23385519" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -403,7 +408,8 @@
     <MESSAGE value="another commit" />
     <MESSAGE value="added JUnit in pom" />
     <MESSAGE value="Impl UserService" />
-    <option name="LAST_COMMIT_MESSAGE" value="Impl UserService" />
+    <MESSAGE value="Impl ProductService" />
+    <option name="LAST_COMMIT_MESSAGE" value="Impl ProductService" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/entity/Boots.java">
@@ -530,8 +536,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/api/ProductServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="1562">
+          <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#254#263#0" expanded="true" />
