@@ -89,7 +89,7 @@ public class ProductDaoImpl implements ProductDao {
         return null;
     }
 
-    public Product getProductByName(String productName) throws IOException{
+    public Product getProductByProductName(String productName) throws IOException{
         List<Product> productList = getAllProducts();
 
         for (Product product : productList){
