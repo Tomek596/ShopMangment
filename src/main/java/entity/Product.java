@@ -3,15 +3,16 @@ package entity;
 public class Product {
 
     public final static String PRODUCT_SEPARATOR = "#";
+    public final static char PRODUCT_TYPE = 'P';
 
     private Long id;
     private String productName;
-    private float price;
-    private float weight;
+    private Float price;
+    private Float weight;
     private String color;
-    private int productCount;
+    private Integer productCount;
 
-    public Product(Long id, String productName, float price, float weight, String color, int productCount) {
+    public Product(Long id, String productName, Float price, Float weight, String color, Integer productCount) {
         this.id = id;
         this.productName = productName;
         this.price = price;
@@ -28,15 +29,15 @@ public class Product {
         return productName;
     }
 
-    public float getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 
-    public float getWeight() {
+    public Float getWeight() {
         return weight;
     }
 
@@ -44,16 +45,19 @@ public class Product {
         return color;
     }
 
-    public int getProductCount() {
+    public Integer getProductCount() {
         return productCount;
     }
 
-    public void setProductCount(int productCount) {
+    public void setProductCount(Integer productCount) {
         this.productCount = productCount;
     }
 
+    protected String getBasicProductString(){
+        return id + PRODUCT_SEPARATOR + productName + PRODUCT_SEPARATOR + price + PRODUCT_SEPARATOR + weight + PRODUCT_SEPARATOR + color + PRODUCT_SEPARATOR + productCount;
+    }
     @Override
     public String toString() {
-        return id + PRODUCT_SEPARATOR + productName + PRODUCT_SEPARATOR + price + PRODUCT_SEPARATOR + weight + PRODUCT_SEPARATOR + color + PRODUCT_SEPARATOR + productCount;
+        return PRODUCT_TYPE + PRODUCT_SEPARATOR + getBasicProductString();
     }
 }
