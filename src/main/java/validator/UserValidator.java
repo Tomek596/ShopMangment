@@ -15,7 +15,7 @@ public class UserValidator {
     private static UserValidator instance = new UserValidator();
     private static UserDao userDao = UserDaoImpl.getInstance();
 
-    public UserValidator() {
+    private UserValidator() {
     }
 
     public static UserValidator getInstance() {
