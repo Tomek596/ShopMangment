@@ -26,7 +26,6 @@ public class ProductDaoImpl implements ProductDao {
         if (instance == null) {
             instance = new ProductDaoImpl();
         }
-
         return instance;
     }
 

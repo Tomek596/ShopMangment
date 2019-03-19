@@ -24,31 +24,27 @@ public class UserDaoImpl implements UserDao {
         }
 
     }
-
     public static UserDaoImpl getInstance(){
         if(instance == null){
             instance = new UserDaoImpl();
         }
         return instance;
     }
-    @Override
     public void saveUser(User user) throws IOException {
         List<User> userList = getAllUsers();
         userList.add(user);
         saveUsers(userList);
     }
 
-    @Override
     public void saveUsers(List<User> users) throws FileNotFoundException {
         FileUtils.clearFile(fileName);
         PrintWriter printWriter = new PrintWriter(new FileOutputStream(fileName, true));
         for(User user : users){
-            printWriter.write(user.toString() + "\r\n");
+            printWriter.write(user.toString() + "\n");
         }
         printWriter.close();
     }
 
-    @Override
     public List<User> getAllUsers() throws IOException {
         List<User> userList = new ArrayList<User>();
         BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
@@ -56,39 +52,12 @@ public class UserDaoImpl implements UserDao {
         String readLine = bufferedReader.readLine();
         while (readLine != null) {
             User user = UserParser.convertToUser(readLine);
-            if (user != null) {
-                userList.add(user);
-            }
+            userList.add(user);
+            readLine = bufferedReader.readLine();
         }
-        bufferedReader.close();
         return userList;
     }
 
-    @Override
-    public User getUserByLogin(String login) throws IOException{
-        List<User> userList = getAllUsers();
-        for(User user : userList){
-            boolean isFoundUser = user.getLogin().equals(login);
-            if(isFoundUser){
-                return user;
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public User getUserById(Long userId) throws IOException{
-        List<User> userList = getAllUsers();
-        for (User user : userList){
-            boolean isFounduser = user.getId().equals(userId);
-            if(isFounduser){
-                return user;
-            }
-        }
-        return null;
-    }
-
-    @Override
     public void removeUserByLogin(String login) throws IOException{
         List<User> userList = getAllUsers();
         for(int i = 0; i < userList.size(); i++){
@@ -100,7 +69,6 @@ public class UserDaoImpl implements UserDao {
         saveUsers(userList);
     }
 
-    @Override
     public void removeUserById(Long id) throws IOException{
         List<User> userList = getAllUsers();
         for(int i = 0; i < userList.size(); i++){
