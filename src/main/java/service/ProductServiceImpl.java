@@ -4,6 +4,10 @@ import api.ProductDao;
 import api.ProductService;
 import dao.ProductDaoImpl;
 import entity.Product;
+import exceptions.ProductCountNegativeException;
+import exceptions.ProductNameEmptyException;
+import exceptions.ProductPriceNoPositiveException;
+import exceptions.ProductWeightNoPositiveException;
 import validator.ProductValidator;
 
 import java.io.IOException;
@@ -46,7 +50,7 @@ public class ProductServiceImpl implements ProductService {
         return null;
     }
 
-    public Product getProductById(Long productId) throws IOException {
+    private Product getProductById(Long productId) throws IOException {
         List<Product> products = getAllProducts();
 
         for (Product product : products) {
@@ -58,57 +62,39 @@ public class ProductServiceImpl implements ProductService {
         return null;
     }
 
-    public boolean isProductExist(String productName) {
-        Product product = null;
+    public boolean isProductExist(String productName) throws IOException {
+        Product product = getProductByProductName(productName);
 
-        try {
-            product = getProductByProductName(productName);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if (product == null) return false;
-
-        return true;
+        return product != null;
     }
 
-    public boolean isProductExist(Long productId) {
-        Product product = null;
+    public boolean isProductExist(Long productId) throws IOException {
+        Product product = getProductById(productId);
 
-        try {
-            product = getProductById(productId);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if (product == null) return false;
-
-        return true;
+        return product != null;
     }
 
-    public boolean isProductOnWarehouse(String productName) {
-        try {
-            for (Product product : getAllProducts()) {
-                if (isProductExist(productName) && product.getProductCount() > 0) {
-                    return true;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public boolean saveProduct(Product product) {
-        try {
-            if (productValidator.isValidate(product)) {
-                productDao.saveProduct(product);
+    public boolean isProductOnWarehouse(String productName) throws IOException {
+        for (Product product : getAllProducts()) {
+            if (isProductExist(productName) && product.getProductCount() > 0) {
                 return true;
             }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
         return false;
     }
 
+    public boolean saveProduct(Product product) throws IOException,
+            ProductNameEmptyException, ProductWeightNoPositiveException,
+            ProductCountNegativeException, ProductPriceNoPositiveException {
+
+        if (productValidator.isValidate(product)) {
+            productDao.saveProduct(product);
+            return true;
+        }
+        return false;
+    }
+
+    public void removeProduct(String productName) throws Exception {
+        productDao.removeProductByName(productName);
+    }
 }

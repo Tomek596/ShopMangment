@@ -1,4 +1,4 @@
-import api.ProductService;
+import api.ProductFacade;
 import api.UserRegisterLoginFacade;
 import entity.Boots;
 import entity.Cloth;
@@ -10,34 +10,36 @@ import entity.enums.SkinType;
 import entity.parser.ColorParser;
 import entity.parser.MaterialParser;
 import entity.parser.SkinParser;
+import facade.ProductFacadeImpl;
 import facade.UserRegisterLoginFacadeImpl;
-import service.ProductServiceImpl;
 
 import java.util.Scanner;
 
 public class Main {
-    static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
-    public static void startMenu() {
+    private static void startMenu() {
         System.out.println("MANAGEMENT MENU");
         System.out.println("1 - Zaloguj się");
         System.out.println("2 - Zarejestruj się");
         System.out.println("0 - Wyjdź");
     }
 
-    public static void loggedMenu() {
+    private static void loggedMenu() {
         System.out.println("MANAGEMENT MENU");
-        System.out.println("1 - Dodaj nowy product");
+        System.out.println("1 - Dodaj nowy produkt");
+        System.out.println("2 - Usuń produkt");
+        System.out.println("3 - Wyświetl dostepne produkty");
         System.out.println("0 - Wyloguj się");
     }
 
-    public static void productTypeMenu() {
+    private static void productTypeMenu() {
         System.out.println("1 - Dodaj buty");
         System.out.println("2 - Dodaj ubrania");
         System.out.println("3 - Inne");
     }
 
-    public static Product createOtherProduct() {
+    private static Product createOtherProduct() {
         String productName;
         Color color;
         Float price, weight;
@@ -61,12 +63,13 @@ public class Main {
         return new Product(1L, productName, price, weight, color, count);
     }
 
-    public static Product createBootsProduct() {
+    private static Product createBootsProduct() {
         String productName;
         Color color;
         Float price, weight;
         Integer count, size;
         SkinType skinType;
+
         System.out.println("ProductName: ");
         productName = scanner.next();
 
@@ -91,12 +94,12 @@ public class Main {
         return new Boots(1L, productName, price, weight, color, count, size, skinType);
     }
 
-    public static Product createClothProduct() {
+    private static Product createClothProduct() {
         String productName, size;
         Material material;
         Color color;
-        Float price, weight;
-        Integer count;
+        float price, weight;
+        int count;
         System.out.println("ProductName: ");
         productName = scanner.next();
         System.out.println("Price: ");
@@ -116,13 +119,14 @@ public class Main {
 
     public static void main(String[] args) {
         UserRegisterLoginFacade userFacade = UserRegisterLoginFacadeImpl.getInstance();
-        ProductService productService = ProductServiceImpl.getInstance();
+        ProductFacade productFacade = ProductFacadeImpl.getInstance();
         boolean appOn = true;
         boolean loggedOn = false;
         int read;
         while (appOn) {
             startMenu();
             read = scanner.nextInt();
+
             switch (read) {
                 case 1:
                     System.out.println("Podaj login:");
@@ -142,11 +146,7 @@ public class Main {
                     System.out.println("Podaj hasło:");
                     String passwordReg = scanner.next();
                     User user = new User(1L, loginReg, passwordReg);
-                    if (userFacade.registerUser(user)) {
-                        System.out.println("Zarejestrowałeś się!");
-                    } else {
-                        System.out.println("Cos poszło nie tak!");
-                    }
+                    userFacade.registerUser(user);
                     break;
                 case 0:
                     appOn = false;
@@ -171,11 +171,16 @@ public class Main {
                                 product = createOtherProduct();
                                 break;
                         }
-                        if (productService.saveProduct(product)) {
-                            System.out.println("Produkt został utworzony");
-                        } else {
-                            System.out.println("Produkt nie został utworzony.");
-                        }
+                        System.out.println(productFacade.createProduct(product));
+                        break;
+                    case 2:
+                        System.out.println("Dostepne produkty: " + productFacade.getAllProducts());
+                        System.out.println("Podaj nazwę produktu do usunięcia: ");
+                        String productName = scanner.next();
+                        System.out.println(productFacade.removeProduct(productName));
+                        break;
+                    case 3:
+                        System.out.println("Dostępne produkty to: " + productFacade.getAllProducts());
                         break;
                     case 0:
                         loggedOn = false;

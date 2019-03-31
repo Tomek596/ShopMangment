@@ -5,18 +5,19 @@ import api.UserService;
 import dao.UserDaoImpl;
 import entity.User;
 import exceptions.UserLoginAlreadyExistException;
+import exceptions.UserShortLengthLoginException;
+import exceptions.UserShortLengthPasswordException;
 import validator.UserValidator;
 
-import java.io.IOException;
 import java.util.List;
 
 
 public class UserServiceImpl implements UserService {
     private static UserServiceImpl instance = null;
-    private UserDao userDao = UserDaoImpl.getInstance();
+    private UserDao userDao = new UserDaoImpl();
     private UserValidator userValidator = UserValidator.getInstance();
 
-    public UserServiceImpl() {
+    private UserServiceImpl() {
     }
 
     public static UserServiceImpl getInstance() {
@@ -26,11 +27,11 @@ public class UserServiceImpl implements UserService {
         return instance;
     }
 
-    public List<User> getAllUsers() throws IOException {
+    public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
 
-    public User getUserById(Long userId) throws IOException {
+    public User getUserById(Long userId) {
         List<User> users = getAllUsers();
 
         for (User user : users) {
@@ -43,18 +44,14 @@ public class UserServiceImpl implements UserService {
     }
 
     public User getUserByLogin(String login) {
-        List<User> users = null;
+        List<User> users;
 
-        try {
-            users = getAllUsers();
-            for (User user : users) {
-                boolean isFoundUser = user.getLogin().equals(login);
-                if (isFoundUser) {
-                    return user;
-                }
+        users = getAllUsers();
+        for (User user : users) {
+            boolean isFoundUser = user.getLogin().equals(login);
+            if (isFoundUser) {
+                return user;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         return null;
     }
@@ -71,22 +68,20 @@ public class UserServiceImpl implements UserService {
         return isCorrectLogin && isCorrectPass;
     }
 
-    public boolean addUser(User user) {
-        try {
-            if (isLoginAlreadyExist(user.getLogin())) {
-                throw new UserLoginAlreadyExistException();
-            }
-            if (userValidator.isValidate(user)) {
-                userDao.saveUser(user);
-                return true;
-            }
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+    public boolean addUser(User user) throws UserLoginAlreadyExistException, UserShortLengthLoginException, UserShortLengthPasswordException {
+
+        if (isLoginAlreadyExist(user.getLogin())) {
+            throw new UserLoginAlreadyExistException();
         }
+        if (userValidator.isValidate(user)) {
+            userDao.saveUser(user);
+            return true;
+        }
+
         return false;
     }
 
-    public void removeUserById(Long userId) throws IOException {
+    public void removeUserById(Long userId) {
         userDao.removeUserById(userId);
     }
 

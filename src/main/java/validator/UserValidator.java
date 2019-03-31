@@ -1,7 +1,5 @@
 package validator;
 
-import api.UserDao;
-import dao.UserDaoImpl;
 import entity.User;
 import exceptions.UserShortLengthLoginException;
 import exceptions.UserShortLengthPasswordException;
@@ -11,8 +9,6 @@ public class UserValidator {
     private static final int MIN_LENGTH_LOGIN = 1;
 
     private static UserValidator instance = null;
-
-    private UserDao userDao = UserDaoImpl.getInstance();
 
     private UserValidator() {
     }
