@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
-    private final static UserDao instance = new UserDaoImpl();
+    private final static UserDao instance = UserDaoImpl.getInstance();
 
     private Connection connection;
     private final String databaseName = "management";
@@ -19,7 +19,7 @@ public class UserDaoImpl implements UserDao {
     public UserDaoImpl() {
         init();
     }
-    public static UserDao getInstance(){
+    private static UserDao getInstance(){
         return UserDaoImpl.instance;
     }
 
@@ -27,7 +27,7 @@ public class UserDaoImpl implements UserDao {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost/" + databaseName + "?useSSL=false", user, password);
-        } catch (Exception e) {
+        } catch(Exception e) {
             e.printStackTrace();
         }
     }
@@ -35,11 +35,14 @@ public class UserDaoImpl implements UserDao {
     public void saveUser(User user) {
         PreparedStatement statement;
         try {
-            String query = "insert into " + databaseName + " (login, password) values (?, ?)";
+            String query = "insert into " + tableName + " (login, password) values (?, ?)";
             statement = connection.prepareStatement(query);
 
             statement.setString(1, user.getLogin());
             statement.setString(2, user.getPassword());
+
+            statement.execute();
+            statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -47,7 +50,7 @@ public class UserDaoImpl implements UserDao {
 
     public List<User> getAllUsers() {
         List<User> userList = new LinkedList<User>();
-        Statement statement = null;
+        Statement statement;
 
         try {
             statement = connection.createStatement();

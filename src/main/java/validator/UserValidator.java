@@ -5,8 +5,8 @@ import exceptions.UserShortLengthLoginException;
 import exceptions.UserShortLengthPasswordException;
 
 public class UserValidator {
-    private static final int MIN_LENGTH_PASSWORD = 1;
-    private static final int MIN_LENGTH_LOGIN = 1;
+    private static final int MIN_LENGTH_PASSWORD = 5;
+    private static final int MIN_LENGTH_LOGIN = 6;
 
     private static UserValidator instance = null;
 

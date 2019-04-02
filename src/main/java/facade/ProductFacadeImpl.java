@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ProductFacadeImpl implements ProductFacade {
 
-    private final static ProductFacade instance= new ProductFacadeImpl();
+    private final static ProductFacade instance = new ProductFacadeImpl();
     private final ProductService productService = ProductServiceImpl.getInstance();
 
     private ProductFacadeImpl() {

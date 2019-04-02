@@ -123,6 +123,7 @@ public class Main {
         boolean appOn = true;
         boolean loggedOn = false;
         int read;
+
         while (appOn) {
             startMenu();
             read = scanner.nextInt();
@@ -146,7 +147,7 @@ public class Main {
                     System.out.println("Podaj hasło:");
                     String passwordReg = scanner.next();
                     User user = new User(1L, loginReg, passwordReg);
-                    userFacade.registerUser(user);
+                    System.out.println(userFacade.registerUser(user)); //function return string and save user after validation
                     break;
                 case 0:
                     appOn = false;
@@ -155,6 +156,7 @@ public class Main {
             while (loggedOn) {
                 loggedMenu();
                 read = scanner.nextInt();
+
                 switch (read) {
                     case 1:
                         productTypeMenu();

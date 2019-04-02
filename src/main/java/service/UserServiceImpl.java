@@ -68,7 +68,8 @@ public class UserServiceImpl implements UserService {
         return isCorrectLogin && isCorrectPass;
     }
 
-    public boolean addUser(User user) throws UserLoginAlreadyExistException, UserShortLengthLoginException, UserShortLengthPasswordException {
+    public boolean addUser(User user) throws UserLoginAlreadyExistException,
+            UserShortLengthLoginException, UserShortLengthPasswordException {
 
         if (isLoginAlreadyExist(user.getLogin())) {
             throw new UserLoginAlreadyExistException();
