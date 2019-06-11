@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="670efb0d-68cf-4c97-a25c-1a257967103d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/facade/ProductFacadeImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/facade/ProductFacadeImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/validator/UserValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/validator/UserValidator.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1562">
-              <caret line="158" column="16" selection-start-line="158" selection-start-column="16" selection-end-line="158" selection-end-column="16" />
+              <caret line="158" selection-start-line="158" selection-end-line="158" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#startMenu#0;class#Main#0" />
@@ -288,9 +283,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554217661153" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554217739786" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -399,7 +395,7 @@
       <workItem from="1551029610305" duration="133000" />
       <workItem from="1552557838424" duration="4088000" />
       <workItem from="1552932750214" duration="7306000" />
-      <workItem from="1553019284755" duration="31018000" />
+      <workItem from="1553019284755" duration="31717000" />
     </task>
     <task id="LOCAL-00001" summary="init commit and created models">
       <created>1546941438089</created>
@@ -527,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1554057903031</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="register users repaired">
+      <created>1554217709061</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1554217709061</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -554,7 +557,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83912000" />
+    <option name="totallyTimeSpent" value="84611000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -567,7 +570,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1021" height="1047" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49943882" weight="0.28343314" />
       <window_info id="Structure" order="1" sideWeight="0.5005612" side_tool="true" weight="0.41452515" />
@@ -622,7 +624,8 @@
     <MESSAGE value="refactoring and checking login already existing to repair" />
     <MESSAGE value="refactoring and enums" />
     <MESSAGE value="plug in database and refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="plug in database and refactoring" />
+    <MESSAGE value="register users repaired" />
+    <option name="LAST_COMMIT_MESSAGE" value="register users repaired" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -1062,7 +1065,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1562">
-          <caret line="158" column="16" selection-start-line="158" selection-start-column="16" selection-end-line="158" selection-end-column="16" />
+          <caret line="158" selection-start-line="158" selection-end-line="158" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#startMenu#0;class#Main#0" />
